@@ -1,0 +1,44 @@
+import type { NewsArticle } from "./types"
+
+// Static news data instead of fetching from a JSON file
+const newsArticles: NewsArticle[] = [
+  {
+    title: "Expungement – How to Clean Your Criminal Record",
+    date: "2012-04-11",
+    author: "Scott Eggenberger",
+    categories: ["Criminal Defense"],
+    excerpt: "No one wants to be defined by their worst day. Some criminal offenses are eligible to be expunged...",
+    slug: "expungement-how-to-clean-your-criminal-record",
+    body: "No one wants to be defined by their worst day. Some criminal offenses are eligible to be expunged from your record, allowing you to move forward with your life without the burden of a past mistake.\n\nExpungement is the legal process of clearing or sealing the record of a criminal conviction. In Utah, many offenses can be expunged after a certain waiting period, provided you meet specific eligibility requirements.\n\nTo be eligible for expungement in Utah, you must:\n\n- Have completed all terms of your sentence, including probation, parole, and payment of fines\n- Have waited the required time period (varies by offense type)\n- Not have pending criminal charges\n- Not have been convicted of another crime during the waiting period\n\nThe waiting period varies depending on the severity of the offense:\n- 3 years for most misdemeanors\n- 5 years for certain alcohol-related offenses\n- 7 years for felonies\n\nSome offenses are not eligible for expungement, including most violent felonies, sexual offenses against minors, and DUIs with serious bodily injury.\n\nThe expungement process begins with obtaining a certificate of eligibility from the Utah Bureau of Criminal Identification (BCI). Once you receive this certificate, you must file a petition for expungement with the court where your case was handled.\n\nAt Allan & Easton Law, we can guide you through every step of the expungement process, from determining your eligibility to ensuring all records are properly sealed. Contact us today to discuss how we can help you clear your record and open new doors in your life.",
+  },
+  {
+    title: "Collateral Consequences of Criminal Convictions",
+    date: "2012-03-29",
+    author: "Scott Eggenberger",
+    categories: ["Criminal Defense"],
+    excerpt: "Many people are not aware of the far-reaching collateral consequences of a criminal conviction...",
+    slug: "collateral-consequences-of-criminal-convictions",
+    body: "Many people are not aware of the far-reaching collateral consequences of a criminal conviction. Beyond the immediate penalties like jail time, fines, and probation, a conviction can impact nearly every aspect of your life long after you've completed your sentence.\n\nCollateral consequences are the legal and regulatory restrictions that limit or prohibit people with criminal records from accessing employment, housing, education, public benefits, and civic participation.\n\nSome of the most common collateral consequences include:\n\n1. Employment barriers: Many employers conduct background checks and may be hesitant to hire individuals with criminal records. Certain professions require licensing that may be denied to those with convictions.\n\n2. Housing limitations: Landlords often conduct background checks, and public housing authorities may deny applications from individuals with certain types of convictions.\n\n3. Educational impacts: Criminal convictions can affect eligibility for federal student aid and admission to colleges and universities.\n\n4. Immigration consequences: Non-citizens may face deportation or be denied naturalization based on criminal convictions.\n\n5. Loss of civil rights: Depending on the offense, you may lose the right to vote, serve on a jury, or own firearms.\n\n6. Family impacts: Criminal convictions can affect custody arrangements and parental rights.\n\n7. Professional licensing: Many professional licenses have character and fitness requirements that may exclude those with criminal records.\n\nAt Allan & Easton Law, we understand that the true cost of a conviction extends far beyond the courtroom. That's why we fight aggressively to prevent convictions whenever possible and explore alternatives like diversion programs, plea in abeyance agreements, and expungements.\n\nIf you're facing criminal charges, it's crucial to work with attorneys who understand these collateral consequences and will help you minimize their impact on your future. Contact us today to discuss your case and learn how we can help protect your rights and your future.",
+  },
+  {
+    title: "Protective Orders – What Are They and How Do They Work?",
+    date: "2012-03-27",
+    author: "Scott Eggenberger",
+    categories: ["Domestic Violence"],
+    excerpt: "A protective order is a civil court order that is designed to stop violent and harassing behavior...",
+    slug: "protective-orders-what-are-they",
+    body: "A protective order is a civil court order that is designed to stop violent and harassing behavior and protect individuals from domestic violence or abuse. In Utah, there are several types of protective orders available, each serving a specific purpose.\n\nTypes of Protective Orders in Utah:\n\n1. Temporary Protective Order: This is an emergency order that can be issued without the alleged abuser present. It provides immediate protection and typically lasts until a hearing for a permanent order can be held (usually within 2 weeks).\n\n2. Permanent Protective Order: After a hearing where both parties can present evidence, a judge may issue a permanent protective order that typically lasts for 3 years.\n\n3. Ex Parte Protective Order: Similar to a temporary order, this can be granted without notice to the other party in emergency situations.\n\n4. Dating Violence Protective Order: Available to individuals who have been in a dating relationship but do not qualify for domestic violence protective orders.\n\nWho Can Get a Protective Order?\nIn Utah, you can request a protective order if you have been subjected to domestic violence or abuse and you have one of the following relationships with the abuser:\n- Current or former spouse\n- Person you live with or have lived with\n- Person you have a child with\n- Relative by blood or marriage\n- Person you are or were dating\n\nWhat Can a Protective Order Do?\nA protective order can:\n- Prohibit the abuser from contacting, harassing, or stalking you\n- Order the abuser to stay away from your home, workplace, or school\n- Grant temporary custody of children\n- Order temporary child support\n- Require the abuser to surrender firearms\n- Order the abuser to attend counseling\n\nViolating a protective order is a criminal offense in Utah and can result in arrest and criminal charges.\n\nIf you need assistance obtaining a protective order or if you've been served with one, Allan & Easton Law can help. We understand the sensitive nature of these situations and can provide guidance on your legal options. Contact us today for a confidential consultation.",
+  },
+]
+
+// This function returns all news articles
+export async function getNewsArticles(): Promise<NewsArticle[]> {
+  // Simply return the static data
+  return newsArticles
+}
+
+// This function fetches a single news article by slug
+export async function getNewsArticleBySlug(slug: string): Promise<NewsArticle | null> {
+  const article = newsArticles.find((article) => article.slug === slug)
+  return article || null
+}
